@@ -1,0 +1,11 @@
+<h2>Meus campeões</h2>
+<ul class="heroes">
+    <li *ngFor="let campeao of campeoes">
+        <button type="button" (click)="onSelect(campeao)" [class.selected]="campeao === selectedCampeao">
+            <span class="badge">{{campeao.id}}</span>
+            <span class="name">{{campeao.nome}}</span>
+        </button>
+    </li>
+</ul>
+
+<app-campeao-detail [campeao]="selectedCampeao"></app-campeao-detail>
