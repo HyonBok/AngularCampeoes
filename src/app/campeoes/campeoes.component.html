@@ -1,11 +1,20 @@
 <h2>Meus campeões</h2>
 <ul class="heroes">
     <li *ngFor="let campeao of campeoes">
-        <button type="button" (click)="onSelect(campeao)" [class.selected]="campeao === selectedCampeao">
+        <a routerLink="/detail/{{campeao.id}}">
             <span class="badge">{{campeao.id}}</span>
-            <span class="name">{{campeao.nome}}</span>
-        </button>
+            {{campeao.nome}}
+        </a>
+        <button type="button" class="delete" title="delete hero" (click)="delCampeao(campeao)">x</button>
     </li>
 </ul>
 
-<app-campeao-detail [campeao]="selectedCampeao"></app-campeao-detail>
+<div>
+    <label for="new-hero">Nome campeao: </label>
+    <input id="new-hero" #nomeCampeao />
+
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="button" class="add-button" (click)="addCampeao(nomeCampeao.value)">
+        Adicionar campeao
+    </button>
+</div>

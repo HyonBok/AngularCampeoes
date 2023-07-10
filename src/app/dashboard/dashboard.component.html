@@ -1,0 +1,9 @@
+<h2>Top Heroes</h2>
+<div class="heroes-menu">
+  <a *ngFor="let campeao of campeoes"
+    routerLink="/detail/{{campeao.id}}">
+    {{campeao.nome}}
+  </a>
+</div>
+
+<app-campeao-search></app-campeao-search>
